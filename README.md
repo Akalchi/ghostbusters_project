@@ -11,7 +11,7 @@ This project is an application to manage the capture and release of ghosts.
 
 ## Requirements
 
-- JDK 21 or higher
+- JDK 21
 - Maven or Gradle for dependency management
 
 ## UML
