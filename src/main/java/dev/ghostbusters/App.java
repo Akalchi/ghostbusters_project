@@ -1,4 +1,4 @@
-package dev.grupo1;
+package dev.ghostbusters;
 
 /**
  * Hello world!
