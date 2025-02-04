@@ -1,6 +1,6 @@
-# GhostBusters Project
+#  👻 GhostBusters Project 👻
 
-## Stack 
+## Technology Stack
 
 🌱 **Language**: Java 21   
 🧩 **Testing**: JUnit
