@@ -27,7 +27,7 @@ public class GhostControllerTest {
         List<Ghost> capturedGhosts = ghostController.getGhosts();  
     
         assertEquals(1, capturedGhosts.size());
-        assertEquals("Poltergeist", capturedGhosts.get(0).getName());
+        assertEquals("Espíritu del Pescador de Lastres", capturedGhosts.get(0).getName());
     }
 
     @Test
@@ -35,7 +35,7 @@ public class GhostControllerTest {
         ghostController.captureGhost("Espíritu del Pescador de Lastres", "Clase IV", "Bajo", "Aparecer durante tormentas en la costa");
         List<Ghost> allGhosts = ghostController.getGhosts();
         Ghost ghostToRelease = allGhosts.stream()
-        .filter(ghost -> ghost.getClassType().equalsIgnoreCase("Class B")) .findFirst().orElse(null);
+        .filter(ghost -> ghost.getClassType().equalsIgnoreCase("Clase IV")) .findFirst().orElse(null);
         assertNotNull(ghostToRelease);
         assertTrue(ghostController.releaseGhostById(ghostToRelease.getId()));
         assertFalse(ghostController.releaseGhostById(ghostToRelease.getId()));

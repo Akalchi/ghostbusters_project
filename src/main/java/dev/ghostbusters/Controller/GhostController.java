@@ -2,11 +2,10 @@ package dev.ghostbusters.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import dev.ghostbusters.Model.Ghost;
 
 public class GhostController {
-    private final List<Ghost> ghosts = new ArrayList<>(); // Lista de fantasmas
+    private final List<Ghost> ghosts = new ArrayList<>();
     private int nextId = 1;
 
     public void captureGhost(String name, String classType, String dangerLevel, String specialAbility) {
@@ -14,11 +13,13 @@ public class GhostController {
         ghosts.add(ghost);
     }
 
+   
 
 
-
-
-
+        public boolean releaseGhostById(int id) {
+            boolean removed = ghosts.removeIf(ghost -> ghost.getId() == id);
+            return removed;
+        }
 
 
 
