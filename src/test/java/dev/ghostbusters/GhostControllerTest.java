@@ -23,7 +23,7 @@ public class GhostControllerTest {
         List<Ghost> capturedGhosts = ghostController.getGhosts();  
     
         assertEquals(1, capturedGhosts.size());
-        assertEquals("Poltergeist", capturedGhosts.get(0).getName());
+        assertEquals("Espíritu del Pescador de Lastres", capturedGhosts.get(0).getName());
     }
     
 }
