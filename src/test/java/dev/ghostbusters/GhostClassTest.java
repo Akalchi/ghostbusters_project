@@ -16,7 +16,7 @@ public class GhostClassTest {
     }
 
     @Test
-    void testGetName() {
+    public void testGetName() {
         String name = "Espíritu";
         Ghost ghost = new Ghost(1, name, "Class", "Level", "Ability", LocalDateTime.now());
         assertEquals(name, ghost.getName());
