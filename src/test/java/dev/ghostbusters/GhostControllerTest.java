@@ -1,28 +1,29 @@
 package dev.ghostbusters;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.List;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import dev.ghostbusters.Controller.GhostController;
 import dev.ghostbusters.Model.Ghost;
 
 public class GhostControllerTest {
-     private GhostController controller;
+
+    private GhostController ghostController;
 
     @BeforeEach
-    void setUp() {
-        controller = new GhostController();
+    public void setUp() {
+        ghostController = new GhostController();
     }
 
     @Test
-    void testCaptureGhost() {
-        controller.captureGhost("Espíritu del Pescador", "Clase IV", "Bajo", "Aparecer durante tormentas en la costa");
-        List<Ghost> ghosts = controller.filterGhostsByClass("Clase IV");
-        assertEquals(1, ghosts.size());
-        assertEquals("Espíritu del Pescador", ghosts.get(0).getName());
+    public void testCaptureGhost() {
+        ghostController.captureGhost("Espíritu del Pescador de Lastres", "Clase IV", "Bajo", "Aparecer durante tormentas en la costa");
+    
+        List<Ghost> capturedGhosts = ghostController.getGhosts();  
+    
+        assertEquals(1, capturedGhosts.size());
+        assertEquals("Poltergeist", capturedGhosts.get(0).getName());
     }
-
+    
 }

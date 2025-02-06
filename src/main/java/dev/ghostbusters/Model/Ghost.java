@@ -1,6 +1,6 @@
 package dev.ghostbusters.Model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Ghost {
 
@@ -9,7 +9,7 @@ public class Ghost {
     private String classType;
     private String dangerLevel;
     private String specialAbility;
-    private LocalDateTime captureDate;
+    private LocalDate captureDate;
     
     public Ghost(int id, String name, String classType, String dangerLevel, String specialAbility, Object captureDate) {
         this.id = id;
@@ -17,7 +17,7 @@ public class Ghost {
         this.classType = classType;
         this.dangerLevel = dangerLevel;
         this.specialAbility = specialAbility;
-        this.captureDate = (LocalDateTime) captureDate;
+        this.captureDate = (LocalDate) captureDate;
     }
 
     public int getId() {
@@ -39,7 +39,7 @@ public class Ghost {
         return specialAbility;
     }
 
-    public LocalDateTime getCaptureDate() {
+    public LocalDate getCaptureDate() {
         return captureDate;
     }
 
