@@ -21,4 +21,12 @@ public class GhostClassTest {
         Ghost ghost = new Ghost(1, name, "Class", "Level", "Ability", LocalDateTime.now());
         assertEquals(name, ghost.getName());
     }
+
+    @Test
+    void testGetClassType() {
+        String classType = "Clase IV";
+        Ghost ghost = new Ghost(1, "Name", classType, "Level", "Ability", LocalDateTime.now());
+        assertEquals(classType, ghost.getClassType());
+    }
 }
+
