@@ -14,4 +14,11 @@ public class GhostClassTest {
         Ghost ghost = new Ghost(id, "Name", "Class", "Level", "Ability", LocalDateTime.now());
         assertEquals(id, ghost.getId());
     }
+
+    @Test
+    void testGetName() {
+        String name = "Espíritu";
+        Ghost ghost = new Ghost(1, name, "Class", "Level", "Ability", LocalDateTime.now());
+        assertEquals(name, ghost.getName());
+    }
 }
