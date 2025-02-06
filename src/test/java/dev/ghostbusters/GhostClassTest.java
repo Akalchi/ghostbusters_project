@@ -28,5 +28,12 @@ public class GhostClassTest {
         Ghost ghost = new Ghost(1, "Name", classType, "Level", "Ability", LocalDateTime.now());
         assertEquals(classType, ghost.getClassType());
     }
+
+    @Test
+    void testGetDangerLevel() {
+        String dangerLevel = "Bajo";
+        Ghost ghost = new Ghost(1, "Name", "Class", dangerLevel, "Ability", LocalDateTime.now());
+        assertEquals(dangerLevel, ghost.getDangerLevel());
+    }
 }
 
