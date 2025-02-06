@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 
 import org.junit.jupiter.api.Test;
 
+import dev.ghostbusters.Model.Ghost;
+
 public class GhostClassTest {
 
     private static final LocalDateTime LocalDateTime = null;
