@@ -12,7 +12,6 @@ public class GhostClassTest {
     
         @Test
         void testGhostClass() {
-            // Arrange: Datos de prueba
             int id = 1;
             String name = "Espíritu del Pescador";
             String classType = "Clase IV";
