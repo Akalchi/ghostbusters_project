@@ -42,5 +42,12 @@ public class GhostClassTest {
         Ghost ghost = new Ghost(1, "Name", "Class", "Level", specialAbility, LocalDateTime.now());
         assertEquals(specialAbility, ghost.getSpecialAbility());
     }
+
+    @Test
+    void testGetCaptureDate() {
+        LocalDateTime captureDate = LocalDateTime.of(2023, 10, 18, 14, 30);
+        Ghost ghost = new Ghost(1, "Name", "Class", "Level", "Ability", captureDate);
+        assertEquals(captureDate, ghost.getCaptureDate());
+    }
 }
 
