@@ -49,15 +49,13 @@ public class GhostControllerTest {
 
       @Test
     public void testFilterGhostsByClass() {
-        // Capturamos varios fantasmas
+
         ghostController.captureGhost("Ghost 1", "Class IV", "High", "Invisibility");
         ghostController.captureGhost("Ghost 2", "Class IV", "Low", "Screaming");
         ghostController.captureGhost("Ghost 3", "Class VI", "High", "Big damage");
 
-        // Filtramos los fantasmas por clase "Class A"
         List<Ghost> classAGhosts = ghostController.filterGhostsByClass("Class IV");
 
-        // Verificamos que los fantasmas de la clase A estén correctamente filtrados
         assertEquals(2, classAGhosts.size());
         assertTrue(classAGhosts.stream().anyMatch(ghost -> ghost.getName().equals("Ghost 1")));
         assertTrue(classAGhosts.stream().anyMatch(ghost -> ghost.getName().equals("Ghost 2")));
