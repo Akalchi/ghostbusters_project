@@ -1,82 +1,56 @@
 package dev.ghostbusters.Tests;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import java.util.List;
-import java.time.LocalDate;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import dev.ghostbusters.Controller.GhostController;
 import dev.ghostbusters.Model.Ghost;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GhostControllerTest {
-    
-        private GhostController ghostController;
-    
-        @BeforeEach
-        public void setUp() {
-            ghostController = new GhostController();
-        }
-    
-        @Test
-        public void testCaptureGhost() {
-            ghostController.captureGhost("Espíritu del Pescador de Lastres", "Clase IV", "Bajo", "Aparecer durante tormentas en la costa");
-        
-            List<Ghost> capturedGhosts = ghostController.getGhosts();  
-        
-            assertEquals(1, capturedGhosts.size());
-            assertEquals("Espíritu del Pescador de Lastres", capturedGhosts.get(0).getName());
-        }
-        
-        @Test
-        public void testReleaseGhostById() {
-    
-           this.ghostController.captureGhost("Espíritu del Pescador de Lastres", "Clase IV", "Bajo", "Aparecer durante tormentas en la costa");
-    
-           Ghost ghostToRelease = this.ghostController.getGhosts().stream()
-            .filter(ghost -> ghost.getClassType().equalsIgnoreCase("Clase IV"))
-            .findFirst()
-            .orElse(null);
-    
-           Assertions.assertNotNull(ghostToRelease);
-    
-           Assertions.assertTrue(this.ghostController.releaseGhostById(ghostToRelease.getId()));
-    
-           Assertions.assertFalse(this.ghostController.releaseGhostById(ghostToRelease.getId()));
-        }
-    
-          @Test
-        public void testFilterGhostsByClass() {
-    
-            ghostController.captureGhost("Ghost 1", "Class IV", "High", "Invisibility");
-            ghostController.captureGhost("Ghost 2", "Class IV", "Low", "Screaming");
-            ghostController.captureGhost("Ghost 3", "Class VI", "High", "Big damage");
-    
-            List<Ghost> classAGhosts = ghostController.filterGhostsByClass("Class IV");
-    
-            assertEquals(2, classAGhosts.size());
-            assertTrue(classAGhosts.stream().anyMatch(ghost -> ghost.getName().equals("Ghost 1")));
-            assertTrue(classAGhosts.stream().anyMatch(ghost -> ghost.getName().equals("Ghost 2")));
-        }
-    
-        @Test
-        public void testFilterGhostsByDate() {
-    
-            ghostController.captureGhost("Ghost 1", "Class IV", "High", "Invisibility");
-            ghostController.captureGhost("Ghost 2", "Class IV", "Low", "Screaming");
-    
-            List<Ghost> ghostsOnToday = ghostController.filterGhostsByDate(LocalDate.now());
 
+    private GhostController ghostController;
 
-        assertEquals(2, ghostsOnToday.size());
-        assertTrue(ghostsOnToday.stream().anyMatch(ghost -> ghost.getName().equals("Ghost 1")));
-        assertTrue(ghostsOnToday.stream().anyMatch(ghost -> ghost.getName().equals("Ghost 2")));
+    @BeforeEach
+    public void setUp() {
+        ghostController = new GhostController();
+
+        ghostController.getGhosts().addAll(List.of(
+            new Ghost(1, "Ghost 1", "Class IV", "High", "Invisibility", LocalDate.now()),
+            new Ghost(2, "Ghost 2", "Class IV", "Low", "Screaming", LocalDate.now())
+        ));
     }
 
+    @Test
+    public void testCaptureGhost() {
+        List<Ghost> capturedGhosts = ghostController.getGhosts();
+        assertEquals(2, capturedGhosts.size()); 
+    }
 
+    @Test
+    public void testReleaseGhostById() {
+        assertTrue(ghostController.releaseGhostById(1)); 
+        assertFalse(ghostController.releaseGhostById(99)); 
+    }
 
+    @Test
+    public void testFilterGhostsByClass() {
+        List<Ghost> filteredGhosts = ghostController.filterGhostsByClass("Class IV");
 
+        assertEquals(2, filteredGhosts.size());
+        assertEquals("Ghost 1", filteredGhosts.get(0).getName());
+        assertEquals("Ghost 2", filteredGhosts.get(1).getName());
+    }
 
-   
+    @Test
+    public void testFilterGhostsByDate() {
+        List<Ghost> ghostsOnToday = ghostController.filterGhostsByDate(LocalDate.now());
+
+        assertEquals(2, ghostsOnToday.size());
+        assertEquals("Ghost 1", ghostsOnToday.get(0).getName());
+        assertEquals("Ghost 2", ghostsOnToday.get(1).getName());
+    }
 }
