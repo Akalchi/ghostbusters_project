@@ -1,4 +1,4 @@
-package dev.ghostbusters;
+package dev.ghostbusters.Tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
