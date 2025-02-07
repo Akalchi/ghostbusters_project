@@ -1,14 +1,12 @@
 package dev.ghostbusters.Controller;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import dev.ghostbusters.Model.Ghost;
 
 public class GhostController {
-    private final List<Ghost> ghosts = new ArrayList<>(); // Lista de fantasmas
+    private final List<Ghost> ghosts = new ArrayList<>();
     private int nextId = 1;
 
     public void captureGhost(String name, String classType, String dangerLevel, String specialAbility) {
@@ -27,15 +25,11 @@ public class GhostController {
                 .collect(Collectors.toList());
     }
 
-    
-
-    
-    
-  
-
-
-
-
+    public List<Ghost> filterGhostsByDate(LocalDate date) {
+        return ghosts.stream()
+                .filter(ghost -> ghost.getCaptureDate().equals(date))
+                .collect(Collectors.toList());
+    }
 
 
 
