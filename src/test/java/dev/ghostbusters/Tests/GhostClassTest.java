@@ -2,7 +2,7 @@ package dev.ghostbusters.Tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,6 @@ import dev.ghostbusters.Model.Ghost;
 
 public class GhostClassTest {
 
-    private static final LocalDateTime LocalDateTime = null;
     
         @Test
         void testGhostClass() {
@@ -19,8 +18,7 @@ public class GhostClassTest {
             String classType = "Clase IV";
             String dangerLevel = "Bajo";
             String specialAbility = "Aparece durante tormentas";
-            LocalDateTime captureDate = LocalDateTime;
-
+            LocalDate captureDate= LocalDate.now();
         Ghost ghost = new Ghost(id, name, classType, dangerLevel, specialAbility, captureDate);
 
         assertEquals(id, ghost.getId());
