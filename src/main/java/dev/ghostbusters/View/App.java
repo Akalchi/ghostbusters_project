@@ -1,4 +1,4 @@
-package dev.ghostbusters;
+package dev.ghostbusters.View;
 
 /**
  * Hello world!
