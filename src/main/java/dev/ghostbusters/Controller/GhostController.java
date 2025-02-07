@@ -37,9 +37,6 @@ public class GhostController {
         return ghosts;
     }
 
-    public int getNextId() {
-        return nextId;
-    }
 }
 
 

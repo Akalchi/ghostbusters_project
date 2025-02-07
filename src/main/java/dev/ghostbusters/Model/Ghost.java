@@ -43,7 +43,6 @@ public class Ghost {
         return captureDate;
     }
 
-    public class getClassType {
-    }
+    
 
 }
