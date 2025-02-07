@@ -2,7 +2,7 @@ package dev.ghostbusters.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.stream.Collectors;
 
 import dev.ghostbusters.Model.Ghost;
 
@@ -18,6 +18,12 @@ public class GhostController {
     public boolean releaseGhostById(int id) {
         boolean removed = ghosts.removeIf(ghost -> ghost.getId() == id);
         return removed;
+    }
+
+    public List<Ghost> filterGhostsByClass(String classType) {
+        return ghosts.stream()
+                .filter(ghost -> ghost.getClassType().equalsIgnoreCase(classType))
+                .collect(Collectors.toList());
     }
 
     
