@@ -31,8 +31,6 @@ public class GhostController {
                 .collect(Collectors.toList());
     }
 
-
-
     public List<Ghost> getGhosts() {
         return ghosts;
     }
