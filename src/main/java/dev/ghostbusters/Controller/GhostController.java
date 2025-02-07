@@ -14,16 +14,14 @@ public class GhostController {
         ghosts.add(ghost);
     }
 
+    public boolean releaseGhostById(int id) {
+        boolean removed = ghosts.removeIf(ghost -> ghost.getId() == id);
+        return removed;
+    }
 
 
 
 
-
-
-
-
-
-    
 
 
 
