@@ -3,6 +3,7 @@ package dev.ghostbusters.Controller;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import dev.ghostbusters.Model.Ghost;
 
 public class GhostController {
@@ -19,6 +20,9 @@ public class GhostController {
         return removed;
     }
 
+    
+    
+  
 
 
 
