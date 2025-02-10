@@ -1,4 +1,4 @@
-# GhostBusters in Asturias
+# GhostBusters in Asturias👻
 
 ## Project Description
 
